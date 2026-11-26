@@ -10,7 +10,7 @@ jobs:
       - name: validate JSON
         run: for f in iam/*.json budget/*.json; do python3 -m json.tool "$f" > /dev/null && echo "OK $f"; done
       - name: secret scan
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: fs
           scan-ref: .
