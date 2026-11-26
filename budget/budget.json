@@ -1,0 +1,11 @@
+{
+  "BudgetName": "finops-lab-monthly",
+  "BudgetType": "COST",
+  "TimeUnit": "MONTHLY",
+  "BudgetLimit": { "Amount": "__LIMIT__", "Unit": "USD" },
+  "CostTypes": {
+    "IncludeTax": true,
+    "IncludeSubscription": true,
+    "UseBlended": false
+  }
+}

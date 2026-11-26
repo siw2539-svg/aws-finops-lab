@@ -1,0 +1,23 @@
+stages:
+  - lint
+
+shellcheck:
+  stage: lint
+  image: koalaman/shellcheck-alpine:stable
+  script:
+    - shellcheck scripts/*.sh
+
+json-validate:
+  stage: lint
+  image: python:3.12-slim
+  script:
+    - for f in iam/*.json budget/*.json; do python -m json.tool "$f" > /dev/null && echo "OK $f"; done
+
+secret-scan:
+  stage: lint
+  image:
+    name: aquasec/trivy:latest
+    entrypoint: [""]
+  script:
+    # Make sure no AWS keys or other secrets were committed by mistake
+    - trivy fs --scanners secret --exit-code 1 .

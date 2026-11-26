@@ -1,0 +1,18 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ViewCostAndBudgets",
+      "Effect": "Allow",
+      "Action": [
+        "ce:GetCostAndUsage",
+        "ce:GetCostForecast",
+        "ce:GetDimensionValues",
+        "ce:GetTags",
+        "budgets:ViewBudget",
+        "budgets:DescribeBudgetActionsForBudget"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
